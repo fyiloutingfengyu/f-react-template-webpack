@@ -14,7 +14,7 @@ const Home = (props) => {
 
   return (
     <div>
-      <button>test</button>
+      <button className="rotation">test</button>
     </div>
   );
 };

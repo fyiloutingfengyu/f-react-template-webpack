@@ -3,8 +3,7 @@ import ReactDom from 'react-dom/client';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { legacy_createStore as createStore } from 'redux';
 import { Provider } from 'react-redux';
-import './main.css';
-import './index.scss';
+import './styles/main.scss';
 import WrappedRoutes from './router/index';
 import Reducers from './redux/reducers';
 
