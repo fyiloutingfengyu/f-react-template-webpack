@@ -20,13 +20,7 @@ module.exports = {
           name: 'commons'
         }
       }
-    },
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        extractComments: false, //不将注释提取到单独的文件中
-      })
-    ],
+    }
   },
   plugins: [
     new CleanWebpackPlugin(),
