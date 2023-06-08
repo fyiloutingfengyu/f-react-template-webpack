@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as commonAction from '../redux/actions/common';
+import * as commonAction from '../../redux/actions/common';
+import './index.scss';
 
-const Home = (props) => {
+const Index = (props) => {
   useEffect(() => {
     console.log(666);
     props.actions.startLoading();
@@ -13,8 +14,8 @@ const Home = (props) => {
   console.log('isLoading', isLoading);
 
   return (
-    <div>
-      <button className="rotation">test</button>
+    <div className="container">
+      <button className="rotation test-btn">test</button>
     </div>
   );
 };
@@ -31,4 +32,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

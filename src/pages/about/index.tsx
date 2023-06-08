@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
-const About = () => {
+const Index = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const id = searchParams.get('id');
@@ -33,4 +33,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Index;

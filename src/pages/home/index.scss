@@ -1,0 +1,21 @@
+.container {
+  .test-btn {
+    display: block;
+    width: 120px;
+    height: 60px;
+  }
+}
+
+
+.rotation {
+  animation: rotation 1.5s linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

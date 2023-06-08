@@ -1,8 +1,8 @@
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
 
-import Home from '../pages/Home';
-import About from '../pages/About';
+import Home from '../pages/home/index';
+import About from '../pages/about/index';
 
 let routes = [
   {
