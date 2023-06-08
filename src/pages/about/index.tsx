@@ -1,5 +1,6 @@
 import React from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { Outlet, useLocation, useSearchParams } from 'react-router-dom';
+import './index.scss';
 
 const About = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -28,6 +29,9 @@ const About = () => {
         <li>title: {title}</li>
       </ul>
       <button type="button" onClick={setUrlParams}>set</button>
+      <div className="child-box">
+        <Outlet/>
+      </div>
     </div>
   );
 };
