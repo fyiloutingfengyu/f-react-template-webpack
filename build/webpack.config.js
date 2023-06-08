@@ -2,9 +2,9 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -20,7 +20,13 @@ module.exports = {
           name: 'commons'
         }
       }
-    }
+    },
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false, //不将注释提取到单独的文件中
+      })
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -104,28 +110,8 @@ module.exports = {
       },
     ]
   },
-  devtool: 'source-map',
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {}
-  },
-  devServer: {
-    compress: true,
-    hot: true,
-    historyApiFallback: true,
-    open: false,
-    port: 5000,
-    static: {
-      directory: path.resolve(__dirname, 'dist')
-    },
-    proxy: {
-      '/api': {
-        target: 'http://localhost:5000',
-        pathRewrite: {
-          '^/api': '/api'
-        },
-        changeOrigin: true
-      }
-    }
   }
 };

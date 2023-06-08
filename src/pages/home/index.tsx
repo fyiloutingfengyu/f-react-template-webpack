@@ -4,9 +4,10 @@ import { bindActionCreators } from 'redux';
 import * as commonAction from '../../redux/actions/common';
 import './index.scss';
 
-const Index = (props) => {
+const Home = (props) => {
+  console.log(666,process.env.NODE_ENV);
+
   useEffect(() => {
-    console.log(666);
     props.actions.startLoading();
   }, []);
 
@@ -32,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
