@@ -5,7 +5,7 @@ import { legacy_createStore as createStore } from 'redux';
 import { Provider } from 'react-redux';
 import './main.css';
 import './index.scss';
-import WrappedRoutes from './router/index.js';
+import WrappedRoutes from './router/index';
 import Reducers from './redux/reducers';
 
 const store = createStore(

@@ -26,7 +26,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     // 通过 bindActionCreators 将actions包装成可以直接被调用的函数
-    actions: bindActionCreators(commonAction, dispatch)
+    // todo f
+    actions: bindActionCreators(commonAction as any, dispatch)
   };
 };
 

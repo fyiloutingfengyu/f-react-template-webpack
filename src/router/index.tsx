@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { useRoutes } from 'react-router-dom';
 
 import Home from '../pages/Home';
