@@ -4,7 +4,7 @@ import './index.scss';
 const Child = () => {
   return (
     <div>
-      <h3>child</h3>
+      <h3 className="title">child</h3>
     </div>
   )
 };

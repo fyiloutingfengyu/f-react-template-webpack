@@ -14,7 +14,7 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         commons: {
-          chunks: 'initial',
+          chunks: 'all',
           minChunks: 2,
           minSize: 0,
           name: 'commons'
@@ -65,7 +65,16 @@ module.exports = {
           'style-loader',
           'css-loader',
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              sourceMap: true,
+              resources: [
+                path.resolve(__dirname, '../src/styles/variables.scss'),
+              ],
+            }
+          }
         ]
       },
       {

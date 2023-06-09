@@ -6,7 +6,6 @@ import { Provider } from 'react-redux';
 import './styles/main.scss';
 import WrappedRoutes from './router/index';
 import Reducers from './redux/reducers';
-import About from '@/pages/about/index.tsx'
 
 const store = createStore(
   Reducers
