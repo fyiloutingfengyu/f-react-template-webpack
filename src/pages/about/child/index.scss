@@ -1,3 +1,10 @@
-.title {
-  color: $color-primary;
+.about-child {
+  .title {
+    color: $color-primary;
+  }
+
+  .test-img {
+    width: 100px;
+  }
 }
+

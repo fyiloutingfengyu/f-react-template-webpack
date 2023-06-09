@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js",
-    "analyzer": "webpack --config ./build/webpack.analyzer.js"
+    "analyzer": "webpack --env analyzer --config ./build/webpack.analyzer.js"
   },
   "author": "felix",
   "license": "ISC",
@@ -33,7 +33,9 @@
     "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
     "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.0",
     "cssnano": "^6.0.1",
     "cssnano-preset-advanced": "^6.0.1",
     "file-loader": "^6.2.0",
