@@ -18,7 +18,7 @@ let routes = [
     exact: true
   },
   {
-    path: '/about/*',
+    path: '/about',
     element: (
       <Suspense>
         <About/>
