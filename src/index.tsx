@@ -3,9 +3,12 @@ import ReactDom from 'react-dom/client';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { legacy_createStore as createStore } from 'redux';
 import { Provider } from 'react-redux';
+// import 'antd-mobile/es/global/global.css'
 import './styles/main.scss';
+import './index.scss';
 import WrappedRoutes from './router/index';
 import Reducers from './redux/reducers';
+import TabBar from './components/tab-bar/index';
 
 const store = createStore(
   Reducers
@@ -16,14 +19,10 @@ const routerDom = () => {
     <Provider store={store}>
       <Router>
         <div className="base-layout">
-          <header>
-            <Link to="/">home</Link>
-            <br/>
-            <Link to="/about">about</Link>
-          </header>
           <main>
             <WrappedRoutes/>
           </main>
+          <TabBar/>
         </div>
       </Router>
     </Provider>

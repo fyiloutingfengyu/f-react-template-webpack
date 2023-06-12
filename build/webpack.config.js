@@ -61,15 +61,18 @@ module.exports = {
           }
         ],
         include: path.join(__dirname, '../src'),
-        exclude: /node_modules/
+        // exclude: /node_modules/
       },
       {
         test: /\.css$/,
+        // exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader
           },
-          'css-loader'
+          {
+            loader: 'css-loader'
+          }
         ]
       },
       {
@@ -129,7 +132,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json','.web.js'],
     alias: {
       '@': path.resolve(__dirname, '../src')
     }

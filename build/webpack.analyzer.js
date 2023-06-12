@@ -20,23 +20,20 @@ module.exports = (env) => {
     chunkFilename: 'css/[name].[contenthash].css'
   });
 
-  const webpackConfig = merge(prodConfig, {
+  let webpackConfig = merge(prodConfig, {
     plugins: [
-      addAnalyzer(),
-      miniCssExtractPluginConfig
+      addAnalyzer()
     ],
   });
 
-  // todo f
-  if (env.analyzer) {
-    let index = webpackConfig.plugins.findIndex(plugin => {
-      console.log(plugin);
-      return plugin === miniCssExtractPluginConfig;
-    });
-    console.log(index);
+  // 处理speed-measure-webpack-plugin 和 MiniCssExtractPlugin 不兼容的问题
+  let index = webpackConfig.plugins.findIndex(plugin => {
+    return plugin instanceof MiniCssExtractPlugin;
+  });
 
-    webpackConfig.plugins.splice(index, 1);
-  }
+  webpackConfig.plugins.splice(index, 1);
+  webpackConfig = smp.wrap(webpackConfig);
+  webpackConfig.plugins.push(miniCssExtractPluginConfig);
 
-  return smp.wrap(webpackConfig);
+  return webpackConfig;
 };

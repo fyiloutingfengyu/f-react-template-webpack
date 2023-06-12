@@ -2,8 +2,9 @@ import React, { lazy, Suspense } from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
 import Home from '../pages/home/index';
 
-const About = lazy(() => import('../pages/about/index'));
-const AboutChild = lazy(() => import('../pages/about/child/index'));
+const Message = lazy(() => import('../pages/message/index'));
+const MessageChild = lazy(() => import('../pages/message/child/index'));
+const My = lazy(() => import('../pages/my/index'));
 const NotFound = lazy(() => import('../pages/not-found/index'));
 
 let routes = [
@@ -18,10 +19,10 @@ let routes = [
     exact: true
   },
   {
-    path: '/about',
+    path: '/message',
     element: (
       <Suspense>
-        <About/>
+        <Message/>
       </Suspense>
     ),
     children: [
@@ -29,11 +30,15 @@ let routes = [
         path: 'child',
         element: (
           <Suspense>
-            <AboutChild/>
+            <MessageChild/>
           </Suspense>
         )
       }
     ]
+  },
+  {
+    path: '/my',
+    element: <My/>
   },
   {
     path: '*',

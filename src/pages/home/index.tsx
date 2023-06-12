@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Button } from 'antd-mobile';
 import * as commonAction from '../../redux/actions/common';
 import './index.scss';
 
 const Home = (props) => {
-  console.log(666,process.env.NODE_ENV);
+  console.log(666, process.env.NODE_ENV);
 
   useEffect(() => {
     props.actions.startLoading();
@@ -16,7 +17,7 @@ const Home = (props) => {
 
   return (
     <div className="container">
-      <button className="rotation test-btn">test</button>
+      <Button type="primary" className="rotation test-btn">test</Button>
     </div>
   );
 };

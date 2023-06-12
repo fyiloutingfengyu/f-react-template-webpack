@@ -15,12 +15,20 @@ module.exports = {
     [
       '@babel/plugin-transform-runtime',
       {
-        "corejs": {
-          "version": 3,
-          "proposals": true
+        'corejs': {
+          'version': 3,
+          'proposals': true
         }
       }
     ],
-    ['@babel/plugin-syntax-dynamic-import']
+    ['@babel/plugin-syntax-dynamic-import'],
+    ['@babel/plugin-proposal-class-properties'],
+    [
+      'import',
+      {
+        libraryName: 'antd-mobile',
+        style: 'css' // `style: true` 会加载 less 文件
+      }
+    ]
   ]
 };
