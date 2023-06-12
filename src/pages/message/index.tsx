@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet, useLocation, useSearchParams,Route, Routes } from 'react-router-dom';
+import { Outlet, useLocation, useSearchParams } from 'react-router-dom';
 import './index.scss';
 
 const About = () => {

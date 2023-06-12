@@ -20,7 +20,7 @@ const tabs = [
     icon: <AppOutline/>,
   },
   {
-    key: '/message',
+    key: '/message/child',
     title: '消息',
     icon: <MessageOutline/>,
   },
