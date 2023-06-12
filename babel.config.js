@@ -22,13 +22,6 @@ module.exports = {
       }
     ],
     ['@babel/plugin-syntax-dynamic-import'],
-    ['@babel/plugin-proposal-class-properties'],
-    [
-      'import',
-      {
-        libraryName: 'antd-mobile',
-        style: 'css' // `style: true` 会加载 less 文件
-      }
-    ]
+    ['@babel/plugin-proposal-class-properties']
   ]
 };

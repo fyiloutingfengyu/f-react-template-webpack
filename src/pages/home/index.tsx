@@ -17,7 +17,7 @@ const Home = (props) => {
 
   return (
     <div className="container">
-      <Button type="primary" className="rotation test-btn">test</Button>
+      <Button color="primary" className="rotation test-btn">test</Button>
     </div>
   );
 };

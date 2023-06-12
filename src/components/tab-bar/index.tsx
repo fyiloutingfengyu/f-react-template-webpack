@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.scss';
 import { TabBar } from 'antd-mobile';
 
@@ -7,37 +7,28 @@ import {
   useLocation,
 } from 'react-router-dom';
 
-// TabBar 配置
+import {
+  AppOutline,
+  MessageOutline,
+  UserOutline,
+} from 'antd-mobile-icons';
+
 const tabs = [
   {
-    url: '/home',
+    key: '/home',
     title: '首页',
-    icon: { uri: 'https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg' },
-    selectedIcon: { uri: 'https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg' }
+    icon: <AppOutline/>,
   },
   {
-    url: '/message',
+    key: '/message',
     title: '消息',
-    // todo f
-    icon: <div style={{
-      width: '22px',
-      height: '22px',
-      background: 'url(https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg) center center /  21px 21px no-repeat'
-    }}
-    />,
-    selectedIcon: <div style={{
-      width: '22px',
-      height: '22px',
-      background: 'url(https://gw.alipayobjects.com/zos/rmsportal/ekLecvKBnRazVLXbWOnE.svg) center center /  21px 21px no-repeat'
-    }}
-    />,
+    icon: <MessageOutline/>,
   },
   {
-    url: '/my',
+    key: '/my',
     title: '我的',
-    icon: { uri: 'https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg' },
-    selectedIcon: { uri: 'https://zos.alipayobjects.com/rmsportal/gjpzzcrPMkhfEqgbYvmN.svg' },
-  }
+    icon: <UserOutline/>,
+  },
 ];
 
 const Bottom = () => {
@@ -45,29 +36,23 @@ const Bottom = () => {
   const { pathname } = useLocation();
   console.log('navigate', navigate);
   console.log('pathname', pathname);
-  const [selectedTab, setSelectedTab] = useState('/home');
 
   // 切换tab
-  const changeTab = (item) => {
-    navigate(item.url);
+  const changeTab = (value) => {
+    navigate(value);
   };
 
   return (
     <TabBar
-      barTintColor="white"
-      unselectedTintColor="#949494"
-      tintColor="#33A3F4"
+      activeKey={pathname}
+      onChange={value => changeTab(value)}
+      safeArea={true}
     >
       {tabs.map(item => (
         <TabBar.Item
-          key={item.url}
+          key={item.key}
           icon={item.icon}
-          selectedIcon={item.selectedIcon}
           title={item.title}
-          selected={selectedTab === item.url}
-          onPress={() => {
-            changeTab(item);
-          }}
         />
       ))}
     </TabBar>
