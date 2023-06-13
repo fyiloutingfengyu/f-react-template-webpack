@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
@@ -46,7 +47,10 @@ module.exports = {
           }
         },
       ],
-    })
+    }),
+    new CompressionPlugin({
+      algorithm: 'gzip',
+    }),
   ],
   module: {
     rules: [
@@ -132,7 +136,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json','.web.js'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.web.js'],
     alias: {
       '@': path.resolve(__dirname, '../src')
     }
