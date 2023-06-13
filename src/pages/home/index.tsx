@@ -5,8 +5,15 @@ import { Button } from 'antd-mobile';
 import * as commonAction from '../../redux/actions/common';
 import './index.scss';
 
+import { useNavigate } from 'react-router-dom';
+
 const Home = (props) => {
+  const navigate = useNavigate();
   console.log(666, process.env.NODE_ENV);
+
+  const test = () => {
+    navigate('/my');
+  };
 
   useEffect(() => {
     props.actions.startLoading();
@@ -17,7 +24,10 @@ const Home = (props) => {
 
   return (
     <div className="container">
-      <Button color="primary" className="rotation test-btn">test</Button>
+      <Button color="primary"
+              className="rotation test-btn"
+              onClick={() => test()}
+      >test</Button>
     </div>
   );
 };

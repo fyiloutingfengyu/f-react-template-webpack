@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js",
-    "analyzer": "webpack --env analyzer --config ./build/webpack.analyzer.js"
+    "analyzer": "webpack --env analyzer --config ./build/webpack.analyzer.js",
+    "preview": "serve -s dist"
   },
   "author": "felix",
   "license": "ISC",
@@ -18,7 +19,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.7",
-    "react-router-dom": "^6.12.0",
+    "react-router-dom": "6.12.0",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2"
   },

@@ -1,11 +1,7 @@
 import React from 'react';
 import './index.scss';
 import { TabBar } from 'antd-mobile';
-
-import {
-  useNavigate,
-  useLocation,
-} from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 import {
   AppOutline,
@@ -31,7 +27,7 @@ const tabs = [
   },
 ];
 
-const Bottom = () => {
+const CustomTabBar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   console.log('navigate', navigate);
@@ -39,30 +35,27 @@ const Bottom = () => {
 
   // 切换tab
   const changeTab = (value) => {
+    console.log(888, value);
     navigate(value);
   };
 
   return (
-    <TabBar
-      activeKey={pathname}
-      onChange={value => changeTab(value)}
-      safeArea={true}
-    >
-      {tabs.map(item => (
-        <TabBar.Item
-          key={item.key}
-          icon={item.icon}
-          title={item.title}
-        />
-      ))}
-    </TabBar>
+    <div className="tab-bar">
+      <TabBar
+        activeKey={pathname}
+        onChange={value => changeTab(value)}
+        safeArea={true}
+      >
+        {tabs.map(item => (
+          <TabBar.Item
+            key={item.key}
+            icon={item.icon}
+            title={item.title}
+          />
+        ))}
+      </TabBar>
+    </div>
   );
 };
 
-export default function CustomTabBar() {
-  return (
-    <div className="tab-bar">
-      <Bottom/>
-    </div>
-  );
-}
+export default CustomTabBar;

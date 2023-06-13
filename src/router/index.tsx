@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from 'react';
-import { Navigate, useRoutes } from 'react-router-dom';
+import { Navigate, Route, useRoutes } from 'react-router-dom';
 import Home from '../pages/home/index';
 
 const Message = lazy(() => import('../pages/message/index'));
@@ -7,6 +7,16 @@ const MessageChild = lazy(() => import('../pages/message/child/index'));
 const My = lazy(() => import('../pages/my/index'));
 const NotFound = lazy(() => import('../pages/not-found/index'));
 
+// 渲染懒加载路由
+const lazyElement = (component) => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      {component}
+    </Suspense>
+  );
+};
+
+// 路由列表
 let routes = [
   {
     path: '/',
@@ -20,35 +30,26 @@ let routes = [
   },
   {
     path: '/message',
-    element: (
-      <Suspense>
-        <Message/>
-      </Suspense>
-    ),
+    element: lazyElement(<Message/>),
     children: [
       {
         path: 'child',
-        element: (
-          <Suspense>
-            <MessageChild/>
-          </Suspense>
-        )
+        element: lazyElement(<MessageChild/>)
       }
     ]
   },
   {
     path: '/my',
-    element: <My/>
+    element: lazyElement(<My/>)
   },
   {
     path: '*',
-    element: (
-      <Suspense>
-        <NotFound/>
-      </Suspense>
-    )
+    element: <NotFound/>
   }
 ];
+
+export { routes };
+
 
 const WrappedRoutes = () => {
   return useRoutes(routes);
