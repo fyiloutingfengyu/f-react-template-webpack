@@ -1,7 +1,7 @@
 {
-  "name": "f-react-template-webpack",
+  "name":"{{name}}",
   "version": "1.0.0",
-  "description": "",
+  "description": "{{description}}",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
@@ -9,7 +9,7 @@
     "analyzer": "webpack --env analyzer --config ./build/webpack.analyzer.js",
     "preview": "serve -s dist"
   },
-  "author": "felix",
+  "author": "{{author}}",
   "license": "ISC",
   "dependencies": {
     "@babel/runtime-corejs3": "^7.22.5",
