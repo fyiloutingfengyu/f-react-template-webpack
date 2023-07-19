@@ -1,9 +1,10 @@
 {
-  "name":"{{name}}",
+  "name": "{{name}}",
   "version": "1.0.0",
   "description": "{{description}}",
   "main": "index.js",
   "scripts": {
+    "start": "npm run dev",
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
     "build": "webpack --config ./build/webpack.prod.js",
     "analyzer": "webpack --env analyzer --config ./build/webpack.analyzer.js",
