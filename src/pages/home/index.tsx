@@ -5,29 +5,41 @@ import { Button } from 'antd-mobile';
 import * as commonAction from '../../redux/actions/common';
 import './index.scss';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 
 const Home = (props) => {
-  const navigate = useNavigate();
+  const { isLoading } = props;
+  console.log('isLoading', isLoading);
   console.log(666, process.env.NODE_ENV);
-
-  const test = () => {
-    navigate('/my');
-  };
+  const navigate = useNavigate();
+  const [search, setSearch] = useSearchParams();
+  const id = search.get('id');
+  console.log('id', id);
+  const locationObj = useLocation();
+  console.log('useLocation', locationObj);
 
   useEffect(() => {
     props.actions.startLoading();
   }, []);
 
-  const { isLoading } = props;
-  console.log('isLoading', isLoading);
+  const toMy = () => {
+    navigate('/my');
+  };
+
+  const changeSearchParams = () => {
+    setSearch('id=2');
+  };
 
   return (
     <div className="container">
-      <Button color="primary"
-              className="rotation test-btn"
-              onClick={() => test()}
-      >test</Button>
+      <Button
+        color="primary"
+        className="rotation test-btn"
+        onClick={() => toMy()}
+      >
+        toMy
+      </Button>
+      <Button onClick={() => changeSearchParams()}>change search</Button>
     </div>
   );
 };

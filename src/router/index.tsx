@@ -18,7 +18,8 @@ const lazyElement = (component) => {
 };
 
 // 路由列表
-let routes = [
+// todo f
+let routes: any = [
   {
     path: '/',
     element: <Navigate to="/home"/>,
@@ -31,7 +32,7 @@ let routes = [
   },
   {
     path: '/category',
-    element:lazyElement(<Category/>)
+    element: lazyElement(<Category/>)
   },
   {
     path: '/message',
