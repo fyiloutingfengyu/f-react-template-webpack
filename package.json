@@ -1,5 +1,5 @@
 {
-  "name": "{{name}}",
+  "name": "react-template-webpack",
   "version": "1.0.0",
   "description": "{{description}}",
   "main": "index.js",
@@ -22,7 +22,7 @@
     "react-redux": "^8.0.7",
     "react-router-dom": "6.12.0",
     "redux": "^4.2.1",
-    "redux-thunk": "^2.4.2"
+    "redux-thunk": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",

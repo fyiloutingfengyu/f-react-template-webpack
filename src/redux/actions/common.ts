@@ -1,33 +1,39 @@
-import ACTION_TYPES from './action-types';
+import {
+  LOADING_START,
+  LOADING_END,
+  CHECK_LOGIN_SUCCESS,
+  CHECK_LOGIN_FAILURE,
+  GET_USER_INFO
+} from '@/redux/action-types/common';
 
 export function startLoading() {
   return {
-    type: ACTION_TYPES.LOADING_START,
+    type: LOADING_START
   };
 }
 
 export function endLoading() {
   return {
-    type: ACTION_TYPES.LOADING_END,
+    type: LOADING_END,
   };
 }
 
 export function loginSuccess() {
   return {
-    type: ACTION_TYPES.CHECK_LOGIN_SUCCESS,
+    type: CHECK_LOGIN_SUCCESS,
   };
 }
 
 export function loginFailure() {
   return {
-    type: ACTION_TYPES.CHECK_LOGIN_FAILURE,
+    type: CHECK_LOGIN_FAILURE,
   };
 }
 
 // 获取用户信息
 export function getUserInfo() {
   return {
-    type: ACTION_TYPES.GET_USER_INFO
+    type: GET_USER_INFO
   };
 }
 

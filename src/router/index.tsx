@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Navigate, Route, useRoutes } from 'react-router-dom';
 import Home from '../pages/home/index';
 
+const Category = lazy(() => import('../pages/category/index'));
 const Message = lazy(() => import('../pages/message/index'));
 const MessageChild = lazy(() => import('../pages/message/child/index'));
 const My = lazy(() => import('../pages/my/index'));
@@ -27,6 +28,10 @@ let routes = [
     path: '/home',
     element: <Home/>,
     exact: true
+  },
+  {
+    path: '/category',
+    element:lazyElement(<Category/>)
   },
   {
     path: '/message',

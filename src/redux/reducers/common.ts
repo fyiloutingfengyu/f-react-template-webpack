@@ -1,4 +1,11 @@
-import ACTION_TYPES from '../actions/action-types';
+import {
+  LOADING_START,
+  LOADING_END,
+  CHECK_LOGIN_FAILURE,
+  CHECK_LOGIN_SUCCESS,
+  GET_USER_INFO_SUCCESS,
+  GET_USER_INFO_FAILURE
+} from '@/redux/action-types/common';
 
 const user = window.localStorage.getItem('token');
 const initialState = {
@@ -9,31 +16,31 @@ const initialState = {
 
 function commonReducer(state = initialState, action) {
   switch (action.type) {
-    case ACTION_TYPES.LOADING_START:
+    case LOADING_START:
       return {
         ...state,
         isLoading: true,
       };
-    case ACTION_TYPES.LOADING_END:
+    case LOADING_END:
       return {
         ...state,
         isLoading: false,
       };
-    case ACTION_TYPES.CHECK_LOGIN_FAILURE:
+    case CHECK_LOGIN_FAILURE:
       return {
         ...state,
         isLogin: false,
       };
-    case ACTION_TYPES.CHECK_LOGIN_SUCCESS:
+    case CHECK_LOGIN_SUCCESS:
       return {
         ...state,
         isLogin: true,
       };
-    case ACTION_TYPES.GET_USER_INFO_SUCCESS:
+    case GET_USER_INFO_SUCCESS:
       return {
         userInfo: action.userInfo
       };
-    case ACTION_TYPES.GET_USER_INFO_FAILURE:
+    case GET_USER_INFO_FAILURE:
       return {
         userInfo: {} // todo f
       };
