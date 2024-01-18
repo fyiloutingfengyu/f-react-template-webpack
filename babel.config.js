@@ -4,24 +4,15 @@ module.exports = {
       '@babel/preset-env',
       {
         corejs: 3,
-        useBuiltIns: 'entry',
-        modules: false
+        useBuiltIns: 'usage' // 按需导入
       }
     ],
     '@babel/preset-react',
     '@babel/preset-typescript'
   ],
   plugins: [
-    [
-      '@babel/plugin-transform-runtime',
-      {
-        'corejs': {
-          'version': 3,
-          'proposals': true
-        }
-      }
-    ],
-    ['@babel/plugin-syntax-dynamic-import'],
-    ['@babel/plugin-proposal-class-properties']
+    '@babel/plugin-transform-runtime',
+    '@babel/plugin-syntax-dynamic-import',
+    '@babel/plugin-proposal-class-properties'
   ]
 };
