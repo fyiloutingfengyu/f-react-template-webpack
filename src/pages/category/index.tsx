@@ -6,7 +6,7 @@ import { getCategoryData, getGoodsList } from '@/redux/actions/category';
 
 export default function Category() {
   const dispatch: any = useDispatch();
-  const categoryList = useSelector((state) => {
+  const categoryList = useSelector((state: any) => {
     return state.category.categoryList;
   });
 

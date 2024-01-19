@@ -65,11 +65,14 @@ module.exports = {
           }
         ],
         include: path.join(__dirname, '../src'),
-        // exclude: /node_modules/
+      },
+      {
+        test: /\.tsx$/,
+        exclude: /node_modules/,
+        loader: 'ts-loader'
       },
       {
         test: /\.css$/,
-        // exclude: /node_modules/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader
@@ -136,7 +139,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.web.js'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     alias: {
       '@': path.resolve(__dirname, '../src')
     }
