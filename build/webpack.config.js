@@ -30,8 +30,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].css',
-      chunkFilename: 'css/[name].[contenthash].css'
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css'
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html')
@@ -75,7 +75,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader
+            loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader
           },
           {
             loader: 'css-loader'
@@ -86,7 +86,7 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           },
           'css-loader',
           'postcss-loader',
