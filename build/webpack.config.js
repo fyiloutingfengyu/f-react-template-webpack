@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
-
+// todo f 优化hash
 module.exports = {
   entry: './src/index.tsx',
   output: {
@@ -103,7 +103,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png|jpeg|git)$/,
+        test: /\.(jpg|png|jpeg|gif)$/,
         use: [
           {
             loader: 'url-loader',

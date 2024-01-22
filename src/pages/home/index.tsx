@@ -37,7 +37,7 @@ const Home = (props) => {
         className="rotation test-btn"
         onClick={() => toMy()}
       >
-        toMy
+       to My page
       </Button>
       <Button onClick={() => changeSearchParams()}>change search</Button>
     </div>
