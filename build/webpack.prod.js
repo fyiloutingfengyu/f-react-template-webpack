@@ -2,8 +2,9 @@ const { merge } = require('webpack-merge');
 const commonConfig = require('./webpack.config');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 
-module.exports = merge(commonConfig, {
+const prodConfig = merge(commonConfig, {
   mode: 'production',
   optimization: {
     minimize: true,
@@ -24,5 +25,12 @@ module.exports = merge(commonConfig, {
         extractComments: false //是否将注释全部集中到一个文件中
       })
     ]
-  }
+  },
+  plugins: [
+    new CompressionPlugin({
+      algorithm: 'gzip',
+    }),
+  ]
 });
+
+module.exports = prodConfig;

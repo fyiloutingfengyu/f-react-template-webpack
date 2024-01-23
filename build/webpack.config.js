@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CompressionPlugin = require('compression-webpack-plugin');
+
 const isDev = process.env.NODE_ENV === 'development';
 // todo f 优化hash
 module.exports = {
@@ -47,9 +47,6 @@ module.exports = {
           }
         },
       ],
-    }),
-    new CompressionPlugin({
-      algorithm: 'gzip',
     }),
   ],
   module: {
