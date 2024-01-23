@@ -2,3 +2,7 @@
 
 @import "reset.scss";
 
+html {
+  touch-action: manipulation;
+}
+
