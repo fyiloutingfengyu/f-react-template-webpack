@@ -79,7 +79,8 @@ module.exports = {
           },
           {
             loader: 'css-loader'
-          }
+          },
+          'postcss-loader'
         ]
       },
       {

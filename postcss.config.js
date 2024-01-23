@@ -5,7 +5,15 @@ module.exports = {
       utf8: false
     },
     'postcss-px-to-viewport-8-plugin': {
-      viewportWidth: 750,
+      viewportWidth: file => {
+        let width = 750;
+
+        if (file.indexOf('antd-mobile') !== -1) {
+          width = 375;
+        }
+
+        return width;
+      },
       viewportHeight: 1334,
       unitPrecision: 3,
       viewportUnit: 'vw',
