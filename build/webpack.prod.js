@@ -14,7 +14,7 @@ module.exports = merge(commonConfig, {
           compress: {
             drop_debugger: true,
             drop_console: true,
-            pure_funcs: ['console.log']
+            // pure_funcs: ['console.log'] // 只移除数组中指定的方法
           },
           format: {
             comments: false // 删除所有注释

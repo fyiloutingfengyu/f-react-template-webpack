@@ -11,6 +11,8 @@ const Home = (props) => {
   const { isLoading } = props;
   console.log('isLoading', isLoading);
   console.log(666, process.env.NODE_ENV);
+  console.info(777)
+
   const navigate = useNavigate();
   const [search, setSearch] = useSearchParams();
   const id = search.get('id');

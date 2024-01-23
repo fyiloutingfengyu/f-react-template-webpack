@@ -21,12 +21,12 @@ module.exports = {
       minPixelValue: 1,
       mediaQuery: false
     },
-    cssnano: {
+    /*cssnano: {
       'cssnano-preset-advanced': {
         zindex: false, // 一定要关掉，否则所有的z-index会被设为1
         autoprefixer: false
       }
-    },
+    },*/
     autoprefixer: {}
   }
 };
