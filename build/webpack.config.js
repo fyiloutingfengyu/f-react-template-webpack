@@ -3,9 +3,23 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const dotenv = require('dotenv');
+const fs = require('fs');
+const webpack = require('webpack');
 
 const isDev = process.env.NODE_ENV === 'development';
-// todo f 优化hash
+console.log('ENV_FILE', process.env.ENV_FILE);
+const dotenvFile = path.resolve(__dirname, `../.env.${process.env.ENV_FILE}`);
+console.log('dotenvFile', dotenvFile);
+
+dotenv.config({
+  path: fs.existsSync(dotenvFile)
+    ? dotenvFile
+    : path.resolve(__dirname, `../.env.prod`),
+});
+
+console.log('process.env.REACT_APP_BUILD_ENV', process.env.REACT_APP_BUILD_ENV);
+
 module.exports = {
   entry: './src/index.tsx',
   output: {
@@ -48,6 +62,9 @@ module.exports = {
         },
       ],
     }),
+    new webpack.DefinePlugin({
+      'GLOBAL_ENV': JSON.stringify(process.env)
+    })
   ],
   module: {
     rules: [

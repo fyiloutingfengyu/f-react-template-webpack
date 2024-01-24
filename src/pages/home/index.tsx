@@ -10,8 +10,9 @@ import { useNavigate, useSearchParams, useLocation } from 'react-router-dom';
 const Home = (props) => {
   const { isLoading } = props;
   console.log('isLoading', isLoading);
-  console.log(666, process.env.NODE_ENV);
-  console.info(777)
+  console.log(111, process.env.NODE_ENV);
+  console.log(777, GLOBAL_ENV.REACT_APP_BUILD_ENV);
+  console.log(779, GLOBAL_ENV);
 
   const navigate = useNavigate();
   const [search, setSearch] = useSearchParams();
@@ -39,7 +40,7 @@ const Home = (props) => {
         className="rotation test-btn"
         onClick={() => toMy()}
       >
-       to My page
+        to My page
       </Button>
       <Button onClick={() => changeSearchParams()}>change search</Button>
     </div>

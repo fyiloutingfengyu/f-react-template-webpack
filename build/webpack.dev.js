@@ -2,6 +2,9 @@ const { merge } = require('webpack-merge');
 const commonConfig = require('./webpack.config');
 const path = require('path');
 
+console.log('NODE_ENV',process.env.NODE_ENV);
+console.log('REACT_APP_BUILD_ENV',process.env.REACT_APP_BUILD_ENV);
+
 module.exports = merge(commonConfig, {
   mode: 'development',
   devServer: {
